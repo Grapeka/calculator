@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Calculator {
     private double operand1, operand2;
-    public Operation operation;
+    private Operation operation = new Addition();;
 
     public static void main (String[] args){
         Scanner scanner = new Scanner(System.in);
@@ -19,23 +19,14 @@ public class Calculator {
         scanner.close();
     
         Calculator calculator = new Calculator(operand1, operand2, operatorInput);
-
-        System.out.println(calculator.operand1);
-        System.out.println(calculator.operand2);
-        
-        if(calculator.operation instanceof Division){
-            if(calculator.operation.validateOperand(calculator.operand2) == true){
-                System.out.println("Error, The division is 0");
-
-            }else {
-                calculator.operation.calculate(calculator.operand1, calculator.operand2);
-                calculator.operation.showResult();
-            }
-
-        }else {
+     
+        if(calculator.operation.getValid()){
             calculator.operation.calculate(calculator.operand1, calculator.operand2);
-            calculator.operation.showResult();
+            System.out.println(calculator.operation.getResult());
+        } else {
+            System.out.println(calculator.operation.getError());
         }
+        
         
     }
 
@@ -61,7 +52,14 @@ public class Calculator {
 
             case "/":
             this.operation = new Division();
+            if (!this.operation.validateOperand(this.operation,operand2,operand2)){
+                this.operation.err = "Error, The divisor is 0";
+            }
             break;
+
+            default: 
+            this.operation.valid = false;
+            this.operation.err = "Error, Invalid operator";
         }
 
     }

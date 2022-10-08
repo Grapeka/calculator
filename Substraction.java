@@ -9,9 +9,4 @@ public class Substraction extends Operation {
         this.result = operand1 - operand2; 
     }
 
-    @Override
-    public void showResult () {
-        System.out.println("Result: " + this.result);
-    }
-    
 }

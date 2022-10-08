@@ -9,15 +9,12 @@ public class Division extends Operation{
     }
 
     @Override
-    public void showResult () {
-        System.out.println("Result: " + this.result);
-    }
-
-    @Override
-    public boolean validateOperand(double operand2){
-        if(operand2 == 0){
-            return err = true;
+    public boolean validateOperand(Operation operation,double operand1, double operand2){
+        if (operation instanceof Division){
+            if(operand2 == 0){
+                valid  = false;
+            }
         }
-        return false;
+        return valid;
     }
 }
