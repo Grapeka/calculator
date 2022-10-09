@@ -1,7 +1,6 @@
 public class Substraction extends Operation {
 
     public Substraction() {
-
     }
 
     @Override

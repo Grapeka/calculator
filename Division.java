@@ -1,10 +1,10 @@
 public class Division extends Operation{
+    
     public Division() {
-        
     }
 
     @Override
-    public void calculate(double operand1, double operand2) {
+    public void calculate(double operand1, double operation1) {
         this.result = operand1 / operand2; 
     }
 

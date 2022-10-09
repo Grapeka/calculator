@@ -1,7 +1,6 @@
 public class Multiplication extends Operation {
     
     public Multiplication() {
-
     }
 
     @Override

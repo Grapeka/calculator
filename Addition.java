@@ -1,7 +1,6 @@
 public class Addition extends Operation {
 
     public Addition() {
-        
     }
 
     @Override

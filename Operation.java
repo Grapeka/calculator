@@ -1,6 +1,6 @@
-import javax.xml.validation.Validator;
-public abstract class Operation {
-    protected double operand1, operand2, result; 
+public class Operation {
+    protected double operand1,operand2;
+	protected double result; 
     protected  boolean valid = true;
     String err;
     
@@ -8,7 +8,7 @@ public abstract class Operation {
 
     public Operation (double operand1, double operand2) {
         this.operand1 = operand1;
-        this.operand2 = operand2;
+        this.operand2 = operand2;    
     }
 
     public void calculate (double operand1, double operand2) {
