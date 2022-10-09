@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Calculator {
     private static double operand1, operand2;
-     Operation calculatorOperation = new Operation();
+    protected Operation calculatorOperation = new Operation();
     public Calculator(){}
     
     public Calculator(double operandOne, double operandTwo, String operationInput){
