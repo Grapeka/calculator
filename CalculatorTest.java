@@ -5,21 +5,21 @@ import org.junit.Test;
 public class CalculatorTest {
     //Add
     @Test
-    public void testAddOperationByPositive() {
+    public void testAddPositive() {
         Calculator calculator = new Calculator(5,8,"+");
         calculator.calculatorOperation.calculate(5, 8);
         assertEquals(13, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testAddOperationByNegative() {
+    public void testAddNegative() {
         Calculator calculator = new Calculator(5,-2,"+");
         calculator.calculatorOperation.calculate(5, -2);
         assertEquals(3, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testAddOperationBetweenFloat() {
+    public void testAddFloat() {
         Calculator calculator = new Calculator(0.7, 0.2,"+");
         calculator.calculatorOperation.calculate(0.7, 0.2);
         assertEquals(0.9, calculator.calculatorOperation.getResult(),1);
@@ -27,21 +27,21 @@ public class CalculatorTest {
 
     //Substract
     @Test
-    public void testSubstractionOperation() {
+    public void testSubtractPositive() {
         Calculator calculator = new Calculator(8,5,"-");
         calculator.calculatorOperation.calculate(8, 5);
         assertEquals(3, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testSubstractOperationByNegative() {
+    public void testSubtractNegative() {
         Calculator calculator = new Calculator(5,-2,"-");
         calculator.calculatorOperation.calculate(5, -2);
         assertEquals(7, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testSubstractOperationBetweenFloat() {
+    public void testSubtractFloat() {
         Calculator calculator = new Calculator(5.2, 4.2,"-");
         calculator.calculatorOperation.calculate(5.2, 4.2);
         assertEquals(1, calculator.calculatorOperation.getResult(),1);
@@ -49,57 +49,64 @@ public class CalculatorTest {
 
     //Multiply
     @Test
-    public void testMultiplyOperationBetweenPositive() {
+    public void testMultiplyPositive() {
         Calculator calculator = new Calculator(5,8,"*");
         calculator.calculatorOperation.calculate(5, 8);
         assertEquals(40, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testMultiplyOperationBetweenNegative() {
+    public void testMultiplyNegative() {
         Calculator calculator = new Calculator(-5,-8,"*");
         calculator.calculatorOperation.calculate(5, 8);
         assertEquals(40, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testMultiplyOperationByNegative() {
+    public void testMultiplyByNegative() {
         Calculator calculator = new Calculator(8, -2,"*");
         calculator.calculatorOperation.calculate(8, -2);
         assertEquals(-16, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testMultiplyOperationByFloat() {
+    public void testMultiplyByFloat() {
         Calculator calculator = new Calculator(10, 2.5,"*");
         calculator.calculatorOperation.calculate(10, 2.5);
         assertEquals(25, calculator.calculatorOperation.getResult(),1);
     }
 
+    @Test
+    public void testMultiplyByZero() {
+        Calculator calculator = new Calculator(10, 0,"*");
+        calculator.calculatorOperation.calculate(10, 0);
+        assertEquals(0, calculator.calculatorOperation.getResult(),1);
+    }
+
     //Division
     @Test
-    public void testDivisionOperationBetweenPositive() {
+    public void testDivisionPositive() {
         Calculator calculator = new Calculator(12,6,"/");
         calculator.calculatorOperation.calculate(12, 6);
         assertEquals(2, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testDivisionOperationBetweenNegative() {
+    public void testDivisionNegative() {
         Calculator calculator = new Calculator(-18,-9,"/");
-        calculator.calculatorOperation.calculate(-18, 9);
-        assertEquals(-2, calculator.calculatorOperation.getResult(),1);
+        calculator.calculatorOperation.calculate(-18, -9);
+        assertEquals(2, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testDivisionOperationByNegative() {
+    public void testDivisionByNegative() {
         Calculator calculator = new Calculator(8, -2,"/");
         calculator.calculatorOperation.calculate(8, -2);
         assertEquals(-4, calculator.calculatorOperation.getResult(),1);
     }
 
     @Test
-    public void testDivisionOperationByFloat() {
+    public void testDivisionByFloat() {
         Calculator calculator = new Calculator(10, 2.5,"/");
         calculator.calculatorOperation.calculate(10, 2.5);
         assertEquals(4, calculator.calculatorOperation.getResult(),1);
