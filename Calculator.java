@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 public class Calculator {
-    private static double operand1, operand2;
+    private static double operandInput1, operandInput2;
     protected Operation calculatorOperation = new Operation();
     public Calculator(){}
     
     public Calculator(double operandOne, double operandTwo, String operationInput){
-        operand1 = operandOne;
-        operand2 = operandTwo;
+        operandInput1 = operandOne;
+        operandInput2 = operandTwo;
         setOperation(operationInput);
     }
 
@@ -22,7 +22,7 @@ public class Calculator {
         } else if(operationInput.equals("/")){
             this.calculatorOperation = new Division();
 
-            if (!this.calculatorOperation.validateOperand(this.calculatorOperation, operand1, operand2)){
+            if (!this.calculatorOperation.validateOperand(this.calculatorOperation, operandInput1, operandInput2)){
                 this.calculatorOperation.err = "Error, The divisor is 0";
             }
 
@@ -39,17 +39,17 @@ public class Calculator {
         String operatorInput =  scanner.next();
 
         System.out.print("Operand 1: ");
-        Double operand1 =  scanner.nextDouble();
+        operandInput1 =  scanner.nextDouble();
     
         System.out.print("Operand 2: ");
-        Double operand2 =  scanner.nextDouble();
+        operandInput2 =  scanner.nextDouble();
     
         scanner.close();
     
-        Calculator calculator = new Calculator(operand1, operand2, operatorInput);
+        Calculator calculator = new Calculator(operandInput1, operandInput2, operatorInput);
 
         if(calculator.calculatorOperation.getValid()){
-            calculator.calculatorOperation.calculate(operand1, operand2);
+            calculator.calculatorOperation.calculate(operandInput1, operandInput2);
             System.out.println(calculator.calculatorOperation.getResult());
         } else {
             System.out.println(calculator.calculatorOperation.getError());
