@@ -2,7 +2,7 @@ public class Operation {
     protected double operand1,operand2;
 	protected double result; 
     protected  boolean valid = true;
-    String err;
+    protected String err;
     
     public Operation() {}
 
